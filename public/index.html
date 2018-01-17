@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Let browser know website is optimized for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+  <title>Sensor-plug | Sensors | Web Sensors | Mobile Sensors | JavaScript</title>
+
+  <link rel="stylesheet" type="text/css" href="/bulma/css/bulma.css">
+  <link rel="stylesheet" type="text/css" href="/css/pages.css">
+
+</head>
+<body ng-controller="welcomePageController">
+  <!-- Hero header: will stick at the top -->
+  <div toggle-menu>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <img src="./assets/logo-color.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+        </a>
+        <div class="navbar-burger burger" data-target="navMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navMenu" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="#">
+            Home
+          </a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Examples
+            </a>
+            <div class="navbar-dropdown is-boxed">
+              <a class="navbar-item" href="#orientation">
+                Orientation
+              </a>
+              <a class="navbar-item" href="#geolocation">
+                Geolocation
+              </a>
+              <a class="navbar-item" href="#acceleration">
+                Acceleration
+              </a>
+            </div>
+          </div>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Docs
+            </a>
+            <div class="navbar-dropdown is-boxed">
+              <a class="navbar-item" href="#setup">
+                Setup
+              </a>
+              <a class="navbar-item" href="#about">
+                About
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="field is-grouped">
+              <p class="control">
+                <a class="button is-success" href="https://github.com/menchacaeli">
+              <span class="icon">
+                <i class="fa fa-github"></i>
+              </span>
+                  <span>GitHub</span>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+  <!-- angular template -->
+  <!-- this is where content will be injected -->
+  <div id="main">
+    <div ng-view></div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <strong>sensor-plug.</strong> by <a href="http://www.menchacaeli.com">Eli Menchaca</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+        </p>
+        <p>
+          <a class="icon" href="https://github.com/jgthms/bulma">
+            <i class="fa fa-github"></i>
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://use.fontawesome.com/a924231c6d.js"></script>
+  <script src="/libs/angular.min.js"></script>
+  <script src="/libs/angular-route.min.js"></script>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <!--<script src="/sensor-plug/dist/sensorplug.js" async></script>-->
+  <script src="https://cdn.jsdelivr.net/npm/sensor-plug@4.0.0/dist/sensorplug.min.js" async></script>
+
+  <script src="/js/myApp.js"></script>
+  <script src="/js/controllers.js"></script>
+  <script src="/js/directives.js"></script>
+</body>
+</html>
