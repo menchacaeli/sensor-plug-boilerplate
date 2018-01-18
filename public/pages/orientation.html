@@ -9,9 +9,7 @@
 <section class="section">
   <div class="container">
     <h1 class="title">{{browser.title}}</h1>
-    <h2 class="subtitle">
-      {{browser.subtitle}}
-    </h2>
+    <h2 class="subtitle">{{browser.subtitle}}</h2>
     <a href="https://caniuse.com/#feat=deviceorientation" class="button is-success is-outlined">
       <span class="icon">
         <i class="fa fa-bar-chart"></i>
@@ -106,7 +104,7 @@
     <h2 class="subtitle">
       {{demo.subtitle}}
     </h2>
-    <a class="button is-success is-outlined">
+    <a href="https://github.com/menchacaeli/sensor-plug-boilerplate/blob/master/public/js/directives.js" class="button is-success is-outlined">
             <span class="icon">
                 <i class="fa fa-code"></i>
             </span>
@@ -121,9 +119,12 @@
           <div class="media-content">
             <div class="content">
               <div device-orientation>
-                <code>{{example.gamma}}<progress id="gamma" class="progress is-success value" max="100">null</progress></code>
-                <code>{{example.beta}}<progress id="beta" class="progress is-success value" max="100">null</progress></code>
-                <code>{{example.alpha}}<progress id="alpha" class="progress is-success value" max="100">null</progress></code>
+                <p class="title is-6">{{example.gamma}}</p>
+                <progress id="gamma" class="progress is-success value" max="100">null</progress>
+                <p class="title is-6">{{example.beta}}</p>
+                <progress id="beta" class="progress is-success value" max="100">null</progress>
+                <p class="title is-6">{{example.alpha}}</p>
+                <progress id="alpha" class="progress is-success value" max="100">null</progress>
               </div>
             </div>
           </div>

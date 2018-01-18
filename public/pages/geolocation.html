@@ -106,7 +106,7 @@
     <h2 class="subtitle">
       {{demo.subtitle}}
     </h2>
-    <a class="button is-success is-outlined">
+    <a href="https://github.com/menchacaeli/sensor-plug-boilerplate/blob/master/public/js/directives.js" class="button is-success is-outlined">
             <span class="icon">
                 <i class="fa fa-code"></i>
             </span>
@@ -125,8 +125,11 @@
           <div class="media-content">
             <div class="content">
               <div device-geolocation>
-                <code><span id="latitude" class="g-info">unavailable</span>{{example.lat}}</code>
-                <code><span id="longitude" class="g-info">unavailable</span>{{example.lon}}</code>
+                <span id="latitude" class="g-info">unavailable</span>
+                <span class="title is-6">{{example.lat}}</span>
+                <br>
+                <span id="longitude" class="g-info">unavailable</span>
+                <span class="title is-6">{{example.lon}}</span>
               </div>
             </div>
           </div>

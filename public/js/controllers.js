@@ -123,5 +123,11 @@ myApp.controller('setupPageController', function ($scope) {
 });
 
 myApp.controller('aboutPageController', function ($scope) {
-
+    $scope.greeting = {
+        title: 'About',
+        subtitle: 'Sensor-plug, a micro library that enables built-in mobile device sensors with javascript'
+    };
+    $scope.about = {
+        desc: 'The over all goal of this project was to make sensor data available to novice level developers. A plug and play experience. Other libraries have complex documentation and hundreds of lines of code which can make things difficult when applying to a project. Sensor-plug eliminates the frustration and makes programming a breeze.'
+    }
 });
