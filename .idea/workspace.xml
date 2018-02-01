@@ -47,8 +47,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+            <state relative-caret-position="225">
+              <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -286,7 +286,7 @@
       <workItem from="1516207099224" duration="10367000" />
       <workItem from="1516228939311" duration="29000" />
       <workItem from="1516297453682" duration="4229000" />
-      <workItem from="1517456349894" duration="60000" />
+      <workItem from="1517456349894" duration="283000" />
     </task>
     <task id="LOCAL-00001" summary="Cleaned code in pages directory">
       <created>1516301587123</created>
@@ -309,11 +309,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516308314051</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="removed the vue dependencies, changed name and updated discription.">
+      <created>1517456419883</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1517456419883</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103918000" />
+    <option name="totallyTimeSpent" value="104141000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="134" y="41" width="1274" height="676" extended-state="0" />
@@ -696,8 +703,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        <state relative-caret-position="225">
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
           <folding />
         </state>
       </provider>
