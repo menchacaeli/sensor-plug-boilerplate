@@ -303,7 +303,7 @@
       <workItem from="1516228939311" duration="29000" />
       <workItem from="1516297453682" duration="4229000" />
       <workItem from="1517456349894" duration="1424000" />
-      <workItem from="1517528178004" duration="58000" />
+      <workItem from="1517528178004" duration="177000" />
     </task>
     <task id="LOCAL-00001" summary="Cleaned code in pages directory">
       <created>1516301587123</created>
@@ -340,11 +340,18 @@
       <option name="project" value="LOCAL" />
       <updated>1517456657283</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="removed the vue dependencies, changed name and updated discription.">
+      <created>1517528241150</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1517528241150</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105340000" />
+    <option name="totallyTimeSpent" value="105459000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="315" y="24" width="876" height="676" extended-state="0" />

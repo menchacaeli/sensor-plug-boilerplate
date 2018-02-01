@@ -1,6 +1,6 @@
 # sensor-plug-boilerplate
 
-# live Site
+# Visit website
 http://sensor-plug.openode.io/#/
 
 ## Build Setup
