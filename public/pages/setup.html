@@ -56,5 +56,163 @@
         </figure>
       </div>
     </article>
+    <article class="media is-large">
+      <div class="media-content">
+        <p class="title is-5"><a href="https://socket.io/">{{socket.title}}</a></p>
+        <p class="content">{{socket.desc}} <a href="https://socket.io/get-started/chat/">Chat Application</a></p>
+        <p class="title is-5">index.js or server.js</p>
+        <div class="columns">
+          <div class="column">
+            <div class="box">
+              <div class="media-content">
+                <figure class="highlight">
+                    <pre>
+                      <code>
+  // Socket.io server-side code example:
+  // index.js or server.js
+
+  var express = require('express');
+  var app = express();
+  var path = require('path');
+  var server = require('http').createServer(app);
+  var io = require('socket.io')(server);
+  var port = process.env.PORT || 3000;
+
+  server.listen(port, function () {
+      console.log('Server listening at port %d', port);
+  });
+
+  // Routing
+  // This points to the node_modules directory
+  app.use(express.static(path.join(__dirname, '/node_modules')));
+  // 'public' is a directory that holds my index.html
+  app.use(express.static(path.join(__dirname, 'public')));
+
+  io.on('connection', function(socket){
+      console.log('a user connected');
+      socket.on('disconnect', function(){
+          console.log('user disconnected');
+      });
+
+      // Emit is used to pass the sensor data from the server-side to client.
+      socket.on('orientation', function(data){
+          socket.emit('orient', data);
+      });
+
+      socket.on('geolocation', function(data){
+          socket.emit('location', data);
+      });
+
+      socket.on('acceleration', function(data){
+          socket.emit('motion', data);
+      });
+  });
+                      </code>
+                    </pre>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="title is-5">index.html</p>
+        <p class="content">Now in index.html I add the following snippet before the &lt;/body>:</p>
+        <div class="columns">
+          <div class="column">
+            <div class="box">
+              <div class="media-content">
+                <figure class="highlight">
+                    <pre class="setup-code">
+                      <code>
+
+  &lt;script src="/socket.io/socket.io.js">&lt;/script>
+  &lt;script src="/sensor-plug/dist/sensorplug.js">&lt;/script>
+
+                      </code>
+                    </pre>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="title is-5">index.html</p>
+        <p class="content">Below is a simple example of the orientation sensor.</p>
+        <p class="content"><span class="icon is-success"><i class="fa fa-github"></i></span><a href="https://github.com/menchacaeli/sensor-plug-orientation-app">Sensor-plug Device Orientation Application</a></p>
+        <div class="columns">
+          <div class="column">
+            <div class="box">
+              <div class="media-content">
+                <figure class="highlight">
+                    <pre class="setup-code">
+                      <code>
+&lt;!doctype html>
+&lt;html>
+  &lt;head>
+    &lt;title>Sensor-plug App&lt;/title>
+  &lt;/head>
+  &lt;body>
+    &lt;div>
+      &lt;!-- The following progress tags will illustrate the current value of the sensor data -->
+      &lt;!-- Notice each id correlates to the variables in the directives.js -> getElementById <- -->
+      &lt;!-- There are many different ways to illustrate the value of sensor data -->
+      &lt;!-- I encourage you to try different routes. -->
+      &lt;h1>Gamma:&lt;/h1>
+      &lt;progress id="gamma" max="100">null&lt;/progress>
+      &lt;h1>Beta:&lt;/h1>
+      &lt;progress id="beta" max="100">null&lt;/progress>
+      &lt;h1>Alpha:&lt;/h1>
+      &lt;progress id="alpha" max="100">null&lt;/progress>
+    &lt;/div>
+
+    &lt;script src="/socket.io/socket.io.js">&lt;/script>
+    &lt;script src="/sensor-plug/dist/sensorplug.js">&lt;/script>
+
+    &lt;script>
+      'use strict';
+      var socket = io();
+
+      // collecting sensor data from the helper function renderData and sending to server-side
+      socket.on('orient', function (data) {
+        renderData(data);
+      });
+
+      // sensor-plug: self executing function, fires the orientation method.
+      Device.handleOrientation();
+
+      // helper function for orientation data, receiving the following:
+      // Gamma: Rotation around the front-to-back axis
+      // Beta: Rotation around the side-to-side axis
+      // Alpha: Rotation around the vertical axis
+      // In this demonstration the value changes in real-time.
+      function renderData (oriObj) {
+        // variables to retrieve the object data from sensor-plug lib
+        var gammaValue = Math.round(oriObj.gamma);
+        var betaValue = Math.round(oriObj.beta);
+        var alphaValue = Math.round(oriObj.alpha);
+
+        // The following variables give you an example of the data visualization.
+        // The sensor data in this case will change the value in the html.
+        var gammaObj = document.getElementById('gamma');
+        gammaObj.setAttribute('value', gammaValue);
+
+        var betaObj = document.getElementById('beta');
+        betaObj.setAttribute('value', betaValue);
+
+        var alphaObj = document.getElementById('alpha');
+        alphaObj.setAttribute('value', alphaValue);
+
+      }
+    &lt;/script>
+  &lt;/body>
+&lt;/html>
+
+                      </code>
+                    </pre>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
   </div>
 </section>

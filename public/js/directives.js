@@ -39,7 +39,7 @@ myApp.directive('toggleMenu', ['$document', function($document) {
 myApp.directive('deviceOrientation', ['$document', function($document) {
     return {
         link: function (scope, element, attr) {
-            // collecting sensor data from the helper function renderData and sending to back-end
+            // collecting sensor data from the helper function renderData and sending to server-side
             socket.on('orient', function (data) {
                 renderData(data);
             });
@@ -48,9 +48,9 @@ myApp.directive('deviceOrientation', ['$document', function($document) {
             Device.handleOrientation();
 
             // helper function for orientation data, receiving the following:
-            // Gamma:
-            // Beta:
-            // Alpha:
+            // Gamma: Rotation around the front-to-back axis
+            // Beta: Rotation around the side-to-side axis
+            // Alpha: Rotation around the vertical axis
             // In this demonstration the value changes in real-time.
             function renderData (oriObj) {
                 // variables to retrieve the object data from sensor-plug lib
@@ -58,6 +58,8 @@ myApp.directive('deviceOrientation', ['$document', function($document) {
                 var betaValue = Math.round(oriObj.beta);
                 var alphaValue = Math.round(oriObj.alpha);
 
+                // The following variables give you an example of the data visualization.
+                // The sensor data in this case will change the value in the html.
                 var gammaObj = document.getElementById('gamma');
                 gammaObj.setAttribute('value', gammaValue);
 
@@ -77,7 +79,7 @@ myApp.directive('deviceOrientation', ['$document', function($document) {
 myApp.directive('deviceAcceleration', ['$document', function($document) {
     return {
         link: function (scope, element, attr) {
-            // collecting sensor data from the helper function renderAccData and sending to back-end
+            // collecting sensor data from the helper function renderAccData and sending to server-side
             socket.on('motion', function (data) {
                 renderAccData(data);
             });
@@ -86,9 +88,9 @@ myApp.directive('deviceAcceleration', ['$document', function($document) {
             Device.handleAcceleration();
 
             // helper function for accelerometer data, receiving the following:
-            // X:
-            // Y:
-            // Z:
+            // X: The speed at which it moves side-to-side
+            // Y: The speed at which it moves forward/back
+            // Z: The speed at which it moves up/down
             // In this demonstration the value changes in real-time.
             function renderAccData (accObj) {
                 // variables to retrieve the object data from sensor-plug lib
@@ -96,6 +98,8 @@ myApp.directive('deviceAcceleration', ['$document', function($document) {
                 var yValue = Math.round(accObj.accelerationY);
                 var zValue = Math.round(accObj.accelerationZ);
 
+                // The following variables give you an example of the data visualization.
+                // The sensor data in this case will change the value in the html.
                 var x = document.getElementById('acceleration-x');
                 x.setAttribute('value', xValue);
 
@@ -115,14 +119,46 @@ myApp.directive('deviceAcceleration', ['$document', function($document) {
 myApp.directive('deviceGeolocation', ['$document', function ($document) {
     return {
         link: function (scope, element, attr) {
-            // collecting sensor data from the helper function renderGeoData and sending to back-end
+            // collecting sensor data from the helper function renderGeoData and sending to server-side
             socket.on('location', function (data) {
                 renderGeoData(data);
             });
 
-            // helper function for accelerometer data, receiving the following:
-            // Latitude:
-            // Longitude:
+            // Check for Geolocation API permissions
+            // Lines 127 - 153 is a permission api from
+            // https://developers.google.com/web/updates/2015/04/permissions-api-for-the-web
+            // I will include this in my lib once tested live
+            navigator.permissions.query({name:'geolocation'})
+                .then(function(permissionStatus) {
+                    console.log('geolocation permission state is ', permissionStatus.state);
+
+                    permissionStatus.onchange = function() {
+                        console.log('geolocation permission state has changed to ', this.state);
+                    };
+                });
+
+            function log() {
+                document.querySelector('#log').textContent += Array.prototype.join.call(arguments, '') + '\n';
+            }
+
+            var getNotBtn = document.getElementById('button-get-permission');
+
+            getNotBtn.addEventListener('click', function() {
+                Notification.requestPermission(function(result) {
+                    if (result === 'denied') {
+                        log('Permission wasn\'t granted.');
+                        return;
+                    } else if (result === 'default') {
+                        log('The permission request was dismissed.');
+                        return;
+                    }
+                    log('Permission was granted for notifications');
+                });
+            });
+
+            // helper function for location data, receiving the following:
+            // Latitude: specifies the north–south position of a point on the Earth's surface
+            // Longitude: specifies the east-west position of a point on the Earth's surface
             // In this demonstration the user will be tracked when click event is fired.
             function renderGeoData(geoObj) {
                 // variables to retrieve the object data from sensor-plug lib
@@ -138,9 +174,8 @@ myApp.directive('deviceGeolocation', ['$document', function ($document) {
 
             // click event to fire sensor-plug method below
             document.getElementById('button-get-position').addEventListener('click', function() {
-                // sensor-plug: self executing function, fires the Geolocation method.
+                // sensor-plug: self executing function, fires the handleGeolocation method.
                 Device.handleGeolocation();
-
             });
         }
         // The End

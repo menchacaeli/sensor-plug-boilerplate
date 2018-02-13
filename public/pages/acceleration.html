@@ -8,130 +8,210 @@
 </section>
 <section class="section">
   <div class="container">
-    <h1 class="title">{{browser.title}}</h1>
-    <h2 class="subtitle">
-      {{browser.subtitle}}
-    </h2>
-    <a href="https://caniuse.com/#search=motion%20event" class="button is-success is-outlined">
-      <span class="icon">
-        <i class="fa fa-bar-chart"></i>
-      </span>
-    <span>{{browser.btn}}</span>
-    </a>
-    <div class="spacer"></div>
-    <div class="columns is-desktop">
-      <div class="column">
-        <div class="box">
-          <div class="media-content">
-            <div class="content">
-              <span class="icon"><i class="fa fa-edge"></i></span><span> Edge</span>
+    <article class="media is-large">
+      <div class="media-content">
+        <p class="title is-5">{{browser.title}}</p>
+        <p class="content">{{browser.subtitle}}</p>
+        <a href="https://caniuse.com/#search=motion%20event" class="button is-success is-outlined">
+          <span class="icon">
+            <i class="fa fa-bar-chart"></i>
+          </span>
+          <span>{{browser.btn}}</span>
+        </a>
+        <div class="spacer"></div>
+        <div class="columns is-desktop">
+          <div class="column">
+            <div class="box">
+              <div class="media-content">
+                <div class="content">
+                  <span class="icon"><i class="fa fa-edge"></i></span><span> Edge</span>
+                </div>
+                <progress class="progress is-success" value="90" max="100">90%</progress>
+              </div>
             </div>
-            <progress class="progress is-success" value="90" max="100">90%</progress>
           </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box">
-          <div class="media-content">
-            <div class="content">
-              <span class="icon"><i class="fa fa-firefox"></i></span><span> Firefox</span>
+          <div class="column">
+            <div class="box">
+              <div class="media-content">
+                <div class="content">
+                  <span class="icon"><i class="fa fa-firefox"></i></span><span> Firefox</span>
+                </div>
+                <progress class="progress is-success" value="60" max="100">60%</progress>
+              </div>
             </div>
-            <progress class="progress is-success" value="60" max="100">60%</progress>
           </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box">
-          <div class="media-content">
-            <div class="content">
-              <span class="icon"><i class="fa fa-chrome"></i></span><span> Chrome</span>
+          <div class="column">
+            <div class="box">
+              <div class="media-content">
+                <div class="content">
+                  <span class="icon"><i class="fa fa-chrome"></i></span><span> Chrome</span>
+                </div>
+                <progress class="progress is-success" value="50" max="100">50%</progress>
+              </div>
             </div>
-            <progress class="progress is-success" value="50" max="100">50%</progress>
           </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box">
-          <div class="media-content">
-            <div class="content">
-              <span class="icon"><i class="fa fa-safari"></i></span><span> Safari</span>
-            </div>
-            <progress class="progress is-danger" value="10" max="100">10%</progress>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-    <h1 class="title">{{mobile.title}}</h1>
-    <h2 class="subtitle">
-      {{mobile.subtitle}}
-    </h2>
-    <a href="https://caniuse.com/#search=motion%20event" class="button is-success is-outlined">
-      <span class="icon">
-        <i class="fa fa-bar-chart"></i>
-      </span>
-      <span>{{mobile.btn}}</span>
-    </a>
-    <div class="spacer"></div>
-    <div class="columns is-desktop">
-      <div class="column">
-        <div class="box">
-          <div class="media-content">
-            <div class="content">
-              <span class="icon"><i class="fa fa-apple"></i></span><span> IOS Safari + Chrome</span>
-            </div>
-            <progress class="progress is-success" value="80" max="100">80%</progress>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box">
-          <div class="media-content">
-            <div class="content">
-              <span class="icon"><i class="fa fa-android"></i></span><span> Android Chrome</span>
-            </div>
-            <progress class="progress is-success" value="80" max="100">80%</progress>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-    <h1 class="title">{{demo.title}}</h1>
-    <h2 class="subtitle">
-      {{demo.subtitle}}
-    </h2>
-    <a href="https://github.com/menchacaeli/sensor-plug-boilerplate/blob/master/public/js/directives.js" class="button is-success is-outlined">
-            <span class="icon">
-                <i class="fa fa-code"></i>
-            </span>
-      <span>{{demo.btn}}</span>
-    </a>
-    <div class="spacer"></div>
-    <h1 class="title">{{example.title}}</h1>
-    <h2 class="subtitle">{{example.subtitle}}</h2>
-    <div class="columns">
-      <div class="column">
-        <div class="box">
-          <div class="media-content">
-            <div class="content">
-              <div device-acceleration>
-                <p class="title is-6">{{example.accX}}</p>
-                <progress id="acceleration-x" class="progress is-success value" max="100">null</progress>
-                <p class="title is-6">{{example.accY}}</p>
-                <progress id="acceleration-y" class="progress is-success value" max="100">null</progress>
-                <p class="title is-6">{{example.accZ}}</p>
-                <progress id="acceleration-z" class="progress is-success value" max="100">null</progress>
+          <div class="column">
+            <div class="box">
+              <div class="media-content">
+                <div class="content">
+                  <span class="icon"><i class="fa fa-safari"></i></span><span> Safari</span>
+                </div>
+                <progress class="progress is-danger" value="10" max="100">10%</progress>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </article>
+    <article class="media is-large">
+      <div class="media-content">
+        <p class="title is-5">{{mobile.title}}</p>
+        <p class="content">{{mobile.subtitle}}</p>
+        <a href="https://caniuse.com/#search=motion%20event" class="button is-success is-outlined">
+          <span class="icon">
+            <i class="fa fa-bar-chart"></i>
+          </span>
+          <span>{{mobile.btn}}</span>
+        </a>
+        <div class="spacer"></div>
+        <div class="columns is-desktop">
+          <div class="column">
+            <div class="box">
+              <div class="media-content">
+                <div class="content">
+                  <span class="icon"><i class="fa fa-apple"></i></span><span> IOS Safari + Chrome</span>
+                </div>
+                <progress class="progress is-success" value="80" max="100">80%</progress>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box">
+              <div class="media-content">
+                <div class="content">
+                  <span class="icon"><i class="fa fa-android"></i></span><span> Android Chrome</span>
+                </div>
+                <progress class="progress is-success" value="80" max="100">80%</progress>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="media is-large">
+      <div class="media-content">
+        <p class="title is-5">{{code.title}}</p>
+        <p class="title is-5">.js</p>
+        <div class="columns">
+          <div class="column">
+            <div class="box">
+              <div class="media-content">
+                <figure class="highlight">
+                    <pre>
+                      <code>
+  // This file will be your client-side js file.
+  // In most cases this will be your main.js or app.js or whatever you want to call your file.
+
+  'use strict';
+  // This creates your web socket
+  var socket = io();
+
+  // collecting sensor data from the helper function renderAccData and sending to server-side
+  socket.on('motion', function (data) {
+      renderAccData(data);
+  });
+
+  // sensor-plug: self executing function, fires the accelerometer method.
+  Device.handleAcceleration();
+
+  // helper function for accelerometer data, receiving the following:
+  // X: The speed at which it moves side-to-side
+  // Y: The speed at which it moves forward/back
+  // Z: The speed at which it moves up/down
+  // In this demonstration the value changes in real-time.
+  function renderAccData (accObj) {
+      // variables to retrieve the object data from sensor-plug lib
+      var xValue = Math.round(accObj.accelerationX);
+      var yValue = Math.round(accObj.accelerationY);
+      var zValue = Math.round(accObj.accelerationZ);
+
+      // The following variables give you an example of the data visualization.
+      // The sensor data in this case will change the value in the html.
+      var x = document.getElementById('acceleration-x');
+      x.setAttribute('value', xValue);
+
+      var y = document.getElementById('acceleration-y');
+      y.setAttribute('value', yValue);
+
+      var z = document.getElementById('acceleration-z');
+      z.setAttribute('value', zValue);
+
+  }
+                      </code>
+                    </pre>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="title is-5">.html</p>
+        <div class="columns">
+          <div class="column">
+            <div class="box">
+              <div class="media-content">
+                <figure class="highlight">
+                    <pre class="setup-code">
+                      <code>
+  &lt;!-- This file will be your client-side html file. -->
+  &lt;!-- In most cases this will be your index.html or acceleration.html or something else... -->
+  &lt;div>
+    &lt;!-- The following progress tags will illustrate the current value of the sensor data -->
+    &lt;!-- Notice each id correlates to the variables in the js above -> getElementById <- -->
+    &lt;!-- There are many different ways to illustrate the value of sensor data -->
+    &lt;!-- I encourage you to try different routes. -->
+    &lt;h1>Acceleration X&lt;/h1>
+    &lt;progress id="acceleration-x" max="100">null&lt;/progress>
+    &lt;h1>Acceleration Y&lt;/h1>
+    &lt;progress id="acceleration-y" max="100">null&lt;/progress>
+    &lt;h1>Acceleration Z&lt;/h1>
+    &lt;progress id="acceleration-z" max="100">null&lt;/progress>
+  &lt;/div>
+                      </code>
+                    </pre>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="media is-large">
+      <div class="media-content">
+        <p class="title is-5">{{example.title}}</p>
+        <p class="content">{{example.subtitle}}</p>
+        <div class="columns">
+          <div class="column">
+            <div class="box">
+              <div class="media-content">
+                <div class="content">
+                  <div device-acceleration>
+                    <!-- The following progress tags will illustrate the current value of the sensor data -->
+                    <!-- Notice each id correlates to the variables in the directives.js -> getElementById <- -->
+                    <!-- There are many different ways to illustrate the value of sensor data -->
+                    <!-- I encourage you to try different routes. -->
+                    <p class="title is-6">{{example.accX}}</p>
+                    <progress id="acceleration-x" class="progress is-success value" max="100">null</progress>
+                    <p class="title is-6">{{example.accY}}</p>
+                    <progress id="acceleration-y" class="progress is-success value" max="100">null</progress>
+                    <p class="title is-6">{{example.accZ}}</p>
+                    <progress id="acceleration-z" class="progress is-success value" max="100">null</progress>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
   </div>
 </section>

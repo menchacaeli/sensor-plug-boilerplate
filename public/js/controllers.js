@@ -31,13 +31,11 @@ myApp.controller('orientationPageController', function ($scope) {
         subtitle: 'The mobile browsers that play nicely with the device orientation event.',
         btn: 'Support'
     };
-    $scope.demo = {
-        title: 'Demo',
-        subtitle: 'This example will work on any browser supporting the device orientation event and running on a device able to detect its orientation.',
-        btn: 'Code'
+    $scope.code = {
+        title: 'Code Example'
     };
     $scope.example = {
-        title: 'Device Orientation Coordinates',
+        title: 'Device Orientation Demo',
         subtitle: 'The value reported for each axis indicates the amount of rotation around a given axis.',
         gamma: 'Gamma',
         beta: 'Beta',
@@ -60,13 +58,11 @@ myApp.controller('accelerationPageController', function ($scope) {
         subtitle: 'The mobile browsers that play nicely with the device acceleration event.',
         btn: 'Support'
     };
-    $scope.demo = {
-        title: 'Demo',
-        subtitle: 'This example will work on any browser supporting the device acceleration event and running on a device able to detect its acceleration.',
-        btn: 'Code'
+    $scope.code = {
+        title: 'Code Example'
     };
     $scope.example = {
-        title: 'Device Acceleration',
+        title: 'Device Acceleration Demo',
         subtitle: 'The value reported for each axis indicates the amount of rotation around a given axis.',
         accX: 'Acceleration X',
         accY: 'Acceleration Y',
@@ -89,15 +85,13 @@ myApp.controller('geolocationPageController', function ($scope) {
         subtitle: 'The mobile browsers that play nicely with the device location API.',
         btn: 'Support'
     };
-    $scope.demo = {
-        title: 'Demo',
-        subtitle: 'This example will work on any browser supporting the device location API and running on a device able to detect its location.',
-        btn: 'Code'
+    $scope.code = {
+        title: 'Code Example'
     };
     $scope.example = {
-        title: 'Device Location Latitude + Longitude',
-        subtitle: 'The value reported indicates your current position.',
+        title: 'Device Geolocation Demo',
         btn: 'Get Current Position',
+        permissionBtn: 'Ask Permission',
         log: 'Log: ',
         lat: '° Latitude',
         lon: '° Longitude',
@@ -119,6 +113,10 @@ myApp.controller('setupPageController', function ($scope) {
     };
     $scope.git = {
         title: 'GIT (recommended)'
+    };
+    $scope.socket = {
+        title: 'Socket.io',
+        desc: 'Sensor-plug currently depends on Socket.io and is included in the package.json file, in order to have this available you must install the dependency. Socket.io is a JavaScript library for real-time applications. Sensor-plug uses Socket.io to pass sensor data between the client-side and server-side in real-time. Refer to the chat room application by Socket.io for a basic setup.'
     }
 });
 
@@ -128,6 +126,14 @@ myApp.controller('aboutPageController', function ($scope) {
         subtitle: 'Sensor-plug, a micro library that enables built-in mobile device sensors with javascript'
     };
     $scope.about = {
+        title: 'What is Sensor-plug?',
         desc: 'The over all goal of this project was to make sensor data available to novice level developers. A plug and play experience. Other libraries have complex documentation and hundreds of lines of code which can make things difficult when applying to a project. Sensor-plug eliminates the frustration and makes programming a breeze.'
+    };
+    $scope.future = {
+        title: 'The Future',
+        desc: 'The following sensors will be included with sensor-plug in the near future.',
+        prox: '- Proximity',
+        light: '- Ambient Light',
+        media: '- Media Capture'
     }
 });
