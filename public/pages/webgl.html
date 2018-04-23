@@ -1,0 +1,183 @@
+<div>
+  <section class="section hero is-success">
+    <div class="container">
+      <h1 class="title">{{greeting.title}}</h1>
+      <h2 class="subtitle">
+        {{greeting.subtitle}}
+      </h2>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <article class="media is-large">
+        <div class="media-content">
+          <p class="title is-5">{{three.title}}</p>
+          <p class="content">{{three.desc}}</p>
+        </div>
+      </article>
+      <article class="media is-large">
+        <div class="media-content">
+          <p class="title is-5">{{three.gettingStarted}}</p>
+          <p class="content">{{three.gettingStartedDesc}}</p>
+          <p class="title is-5">.html</p>
+          <div class="columns">
+            <div class="column">
+              <div class="box">
+                <div class="media-content">
+                  <figure class="highlight">
+                    <pre class="setup-code">
+                      <code>
+&lt;html>
+&lt;head>
+&lt;/head>
+&lt;body>
+  &lt;!-- This file will be your webGL container. -->
+  &lt;div id="webGlContainer">
+  &lt;/div>
+  &lt;script src="js/three.js">&lt;/script>
+  &lt;script>
+  // Our Javascript will go here.
+  &lt;/script>
+&lt;/body>
+&lt;/html>
+                      </code>
+                    </pre>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="media is-large">
+        <div class="media-content">
+          <p class="title is-5">{{three.sceneTitle}}</p>
+          <p class="content">{{three.sceneDesc}}</p>
+          <div class="columns">
+            <div class="column">
+              <div class="box">
+                <div class="media-content">
+                  <figure class="highlight">
+                    <pre class="setup-code">
+                      <code>
+var scene = new THREE.Scene();
+
+var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+
+var container = document.getElementById("webGlContainer");
+container.appendChild( renderer.domElement );
+                      </code>
+                    </pre>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="media is-large">
+        <div class="media-content">
+          <p class="title is-5">Creating a Cube</p>
+          <div class="columns">
+            <div class="column">
+              <div class="box">
+                <div class="media-content">
+                  <figure class="highlight">
+                    <pre class="setup-code">
+                      <code>
+  var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+  var material = new THREE.MeshLambertMaterial( { color: Math.random() * 0xffffff} );
+  var cube = new THREE.Mesh( geometry, material );
+  scene.add( cube );
+                      </code>
+                    </pre>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="media is-large">
+        <div class="media-content">
+          <p class="title is-5">Rendering the scene</p>
+          <div class="columns">
+            <div class="column">
+              <div class="box">
+                <div class="media-content">
+                  <figure class="highlight">
+                    <pre class="setup-code">
+                      <code>
+  function animate() {
+    requestAnimationFrame( animate );
+    renderer.render( scene, camera );
+  }
+  animate();
+                      </code>
+                    </pre>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="media is-large">
+        <div class="media-content">
+          <p class="title is-5">Using Sensor-plug</p>
+          <div class="columns">
+            <div class="column">
+              <div class="box">
+                <div class="media-content">
+                  <figure class="highlight">
+                    <pre class="setup-code">
+                      <code>
+  socket.on('orient', function (data) {
+      renderData(data);
+  });
+
+  Device.handleOrientation();
+
+  function renderData (oriObj) {
+      var tiltLR = Math.round(oriObj.gamma);
+      var tiltFB = Math.round(oriObj.beta);
+      // var dir = oriObj.alpha;
+
+      cube.rotation.z = parseInt(tiltLR) * Math.PI/-180;
+      cube.rotation.x = parseInt(tiltFB) * Math.PI/180;
+
+  }
+                      </code>
+                    </pre>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="media is-large">
+        <div class="media-content">
+          <p class="title is-5">{{example.title}}</p>
+          <p class="content">{{example.subtitle}}</p>
+          <div class="columns">
+            <div class="column">
+              <div class="box">
+                <div class="media-content">
+                  <div class="content">
+                    <div id="webGlContainer" web-gl-orientation>
+                      <!-- Three.js scene -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>

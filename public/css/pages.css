@@ -42,7 +42,6 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    font-size: 15px;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
@@ -71,4 +70,24 @@ a {
 
 .spacer {
     padding: 10px;
+}
+
+/* WEBGL PAGE */
+/* ================================================= */
+#webGlContainer {
+    margin: 0;
+}
+canvas {
+    max-width: 100%;
+}
+
+code {
+    display: block;
+    width: -webkit-calc( 100% - 40px );
+    width: -moz-calc( 100% - 40px );
+    width: calc( 100% - 40px );
+    padding: 20px;
+    white-space: pre-wrap;
+    background-color: #f9f9f9;
+    overflow: auto;
 }

@@ -38,5 +38,10 @@ myApp.config( function($routeProvider) {
         .when('/about', {
             templateUrl : 'pages/about.html',
             controller  : 'aboutPageController'
+        })
+
+        .when('/webgl', {
+            templateUrl : 'pages/webgl.html',
+            controller  : 'webGlPageController'
         });
 });

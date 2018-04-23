@@ -182,3 +182,61 @@ myApp.directive('deviceGeolocation', ['$document', function ($document) {
     }
 }]);
 
+// HANDLES THE WEB VR SCENE
+myApp.directive('webGlOrientation', ['$document', function($document) {
+    return {
+        link: function (scope, element, attr) {
+            var scene = new THREE.Scene();
+
+            var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setSize( window.innerWidth, window.innerHeight);
+
+            var container = document.getElementById("webGlContainer");
+            container.appendChild( renderer.domElement );
+
+            var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+            var material = new THREE.MeshLambertMaterial( { color: Math.random() * 0xffffff} );
+            var cube = new THREE.Mesh( geometry, material );
+            scene.add( cube );
+
+            var light = new THREE.SpotLight( 0xffffff, 1.5 );
+            light.position.set( 0, 500, 2000 );
+            light.angle = Math.PI / 9;
+            light.castShadow = true;
+            light.shadow.camera.near = 1000;
+            light.shadow.camera.far = 4000;
+            light.shadow.mapSize.width = 1024;
+            light.shadow.mapSize.height = 1024;
+            scene.add( light );
+
+            camera.position.z = 5;
+
+            function animate() {
+                requestAnimationFrame( animate );
+
+                renderer.render(scene, camera);
+            }
+
+            socket.on('orient', function (data) {
+                renderData(data);
+            });
+
+            Device.handleOrientation();
+
+            function renderData (oriObj) {
+                var tiltLR = Math.round(oriObj.gamma);
+                var tiltFB = Math.round(oriObj.beta);
+                // var dir = oriObj.alpha;
+
+                cube.rotation.z = parseInt(tiltLR) * Math.PI/-180;
+                cube.rotation.x = parseInt(tiltFB) * Math.PI/180;
+
+            }
+
+            animate();
+
+        }
+    };
+}]);

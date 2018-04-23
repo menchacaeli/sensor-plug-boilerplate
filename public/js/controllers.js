@@ -137,3 +137,22 @@ myApp.controller('aboutPageController', function ($scope) {
         media: '- Media Capture'
     }
 });
+
+myApp.controller('webGlPageController', function ($scope) {
+    $scope.greeting = {
+        title: 'WebGL',
+        subtitle: 'In this example I use sensor-plug device orientation with three.js.'
+    };
+    $scope.three = {
+        title: 'Three.js',
+        desc: 'Three.js is a cross-browser JavaScript library and Application Programming Interface (API) used to create and display animated 3D computer graphics in a web browser. Three.js is an open source library with great documentation. Let\'s get started.',
+        gettingStarted: 'Getting started',
+        gettingStartedDesc: 'Before you can use three.js, you need somewhere to display it. Save the following HTML to a file on your computer, along with a copy of three.js in the js/ directory, and open it in your browser.',
+        sceneTitle: 'Creating a scene',
+        sceneDesc: 'To actually be able to display anything with three.js, we need three things: scene, camera and renderer, so that we can render the scene with camera.'
+    };
+    $scope.example = {
+        title: 'Three.js + Sensor-plug Device Orientation'
+    }
+
+});

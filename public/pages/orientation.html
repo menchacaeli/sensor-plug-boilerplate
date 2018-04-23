@@ -106,54 +106,58 @@
           <div class="column">
             <div class="box">
               <div class="media-content">
-                  <figure class="highlight">
-                    <pre>
+                <figure class="highlight">
+                    <pre class="setup-code">
                       <code>
-  // This file will be your client-side js file.
-  // In most cases this will be your main.js or app.js or whatever you want to call your file.
+// This file will be your client-side js file.
+// In most cases this will be your main.js or app.js or whatever you want to call your file.
 
-  'use strict';
-  // This creates your web socket
-  var socket = io();
+'use strict';
+// This creates your web socket
+var socket = io();
 
-  // collecting sensor data from the helper function renderData and sending to server-side
-  socket.on('orient', function (data) {
-      renderData(data);
-  });
+// collecting sensor data from the helper function renderData and sending to server-side
+socket.on('orient', function (data) {
+    renderData(data);
+});
 
-  // sensor-plug: self executing function, fires the orientation method.
-  Device.handleOrientation();
+// sensor-plug: self executing function, fires the orientation method.
+Device.handleOrientation();
 
-  // helper function for orientation data, receiving the following:
-  // Gamma: Rotation around the front-to-back axis
-  // Beta: Rotation around the side-to-side axis
-  // Alpha: Rotation around the vertical axis
-  // In this demonstration the value changes in real-time.
-  function renderData (oriObj) {
-      // variables to retrieve the object data from sensor-plug lib
-      var gammaValue = Math.round(oriObj.gamma);
-      var betaValue = Math.round(oriObj.beta);
-      var alphaValue = Math.round(oriObj.alpha);
+// helper function for orientation data, receiving the following:
+// Gamma: Rotation around the front-to-back axis
+// Beta: Rotation around the side-to-side axis
+// Alpha: Rotation around the vertical axis
+// In this demonstration the value changes in real-time.
+function renderData (oriObj) {
+    // variables to retrieve the object data from sensor-plug lib
+    var gammaValue = Math.round(oriObj.gamma);
+    var betaValue = Math.round(oriObj.beta);
+    var alphaValue = Math.round(oriObj.alpha);
 
-      // The following variables give you an example of the data visualization.
-      // The sensor data in this case will change the value in the html.
-      var gammaObj = document.getElementById('gamma');
-      gammaObj.setAttribute('value', gammaValue);
+    // The following variables give you an example of the data visualization.
+    // The sensor data in this case will change the value in the html.
+    var gammaObj = document.getElementById('gamma');
+    gammaObj.setAttribute('value', gammaValue);
 
-      var betaObj = document.getElementById('beta');
-      betaObj.setAttribute('value', betaValue);
+    var betaObj = document.getElementById('beta');
+    betaObj.setAttribute('value', betaValue);
 
-      var alphaObj = document.getElementById('alpha');
-      alphaObj.setAttribute('value', alphaValue);
+    var alphaObj = document.getElementById('alpha');
+    alphaObj.setAttribute('value', alphaValue);
 
-  }
+}
                       </code>
                     </pre>
-                  </figure>
+                </figure>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </article>
+    <article class="media is-large">
+      <div class="media-content">
         <p class="title is-5">.html</p>
         <div class="columns">
           <div class="column">
@@ -162,20 +166,20 @@
                 <figure class="highlight">
                     <pre class="setup-code">
                       <code>
-  &lt;!-- This file will be your client-side html file. -->
-  &lt;!-- In most cases this will be your index.html or orientation.html or something else... -->
-  &lt;div>
-    &lt;!-- The following progress tags will illustrate the current value of the sensor data -->
-    &lt;!-- Notice each id correlates to the variables in the js above -> getElementById <- -->
-    &lt;!-- There are many different ways to illustrate the value of sensor data -->
-    &lt;!-- I encourage you to try different routes. -->
-    &lt;h1>Gamma:&lt;/h1>
-    &lt;progress id="gamma" max="100">null&lt;/progress>
-    &lt;h1>Beta:&lt;/h1>
-    &lt;progress id="beta" max="100">null&lt;/progress>
-    &lt;h1>Alpha:&lt;/h1>
-    &lt;progress id="alpha" max="100">null&lt;/progress>
-  &lt;/div>
+&lt;!-- This file will be your client-side html file. -->
+&lt;!-- In most cases this will be your index.html or orientation.html or something else... -->
+&lt;div>
+  &lt;!-- The following progress tags will illustrate the current value of the sensor data -->
+  &lt;!-- Notice each id correlates to the variables in the js above -> getElementById <- -->
+  &lt;!-- There are many different ways to illustrate the value of sensor data -->
+  &lt;!-- I encourage you to try different routes. -->
+  &lt;h1>Gamma:&lt;/h1>
+  &lt;progress id="gamma" max="100">null&lt;/progress>
+  &lt;h1>Beta:&lt;/h1>
+  &lt;progress id="beta" max="100">null&lt;/progress>
+  &lt;h1>Alpha:&lt;/h1>
+  &lt;progress id="alpha" max="100">null&lt;/progress>
+&lt;/div>
                       </code>
                     </pre>
                 </figure>
