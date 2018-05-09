@@ -37,6 +37,10 @@
     margin-right: auto;
 }
 
+.intro-pre {
+    background: none;
+}
+
 .setup-code {
     border-radius: 5px;
     display: -webkit-box;

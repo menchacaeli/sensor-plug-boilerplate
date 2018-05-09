@@ -6,9 +6,6 @@ myApp.controller('welcomePageController', function ($scope) {
         title: 'sensor-plug.',
         subtitle: ''
     };
-    $scope.link = {
-        text: 'npm install sensor-plug'
-    };
     $scope.intro = {
         messageOne: 'Sensor-plug takes away the heavy lifting by providing JavaScript modules that access sensor data using the standard W3C API.',
         messageTwo: 'By packaging the code for device sensor events, sensor-plug allows for a smooth experience for developers.',
