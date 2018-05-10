@@ -20,14 +20,14 @@ io.on('connection', function(socket){
     });
 
     socket.on('orientation', function(data){
-        socket.emit('orient', data);
+        socket.emit('orientation', data);
     });
 
     socket.on('geolocation', function(data){
-        socket.emit('location', data);
+        socket.emit('geolocation', data);
     });
 
     socket.on('acceleration', function(data){
-        socket.emit('motion', data);
+        socket.emit('acceleration', data);
     });
 });

@@ -40,7 +40,7 @@ myApp.directive('deviceOrientation', ['$document', function($document) {
     return {
         link: function (scope, element, attr) {
             // collecting sensor data from the helper function renderData and sending to server-side
-            socket.on('orient', function (data) {
+            socket.on('orientation', function (data) {
                 renderData(data);
             });
 
@@ -80,7 +80,7 @@ myApp.directive('deviceAcceleration', ['$document', function($document) {
     return {
         link: function (scope, element, attr) {
             // collecting sensor data from the helper function renderAccData and sending to server-side
-            socket.on('motion', function (data) {
+            socket.on('acceleration', function (data) {
                 renderAccData(data);
             });
 
@@ -120,7 +120,7 @@ myApp.directive('deviceGeolocation', ['$document', function ($document) {
     return {
         link: function (scope, element, attr) {
             // collecting sensor data from the helper function renderGeoData and sending to server-side
-            socket.on('location', function (data) {
+            socket.on('geolocation', function (data) {
                 renderGeoData(data);
             });
 
@@ -219,7 +219,7 @@ myApp.directive('webGlOrientation', ['$document', function($document) {
                 renderer.render(scene, camera);
             }
 
-            socket.on('orient', function (data) {
+            socket.on('orientation', function (data) {
                 renderData(data);
             });
 
