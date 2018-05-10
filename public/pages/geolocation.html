@@ -109,76 +109,69 @@
           <div class="column">
             <div class="box">
               <div class="media-content">
-                <figure class="highlight">
-                    <pre class="setup-code">
-                      <code>
-// This file will be your client-side js file.
-// In most cases this will be your main.js or app.js or whatever you want to call your file.
+                <span>// This file will be your client-side js file.</span><br>
+                <span>// In most cases this will be your main.js or app.js or whatever you want to call your file.</span><br><br>
 
-'use strict';
-// This creates your web socket
-var socket = io();
+                <span>'use strict';</span><br>
+                <span>// This creates your web socket</span><br>
+                <span>var socket = io();</span><br><br>
 
-// collecting sensor data from the helper function renderGeoData and sending to server-side
-socket.on('location', function (data) {
-    renderGeoData(data);
-});
+                <span>// collecting sensor data from the helper function renderGeoData and sending to server-side</span><br>
+                <span>socket.on('geolocation', function (data) {</span><br>
+                <span class="tab">renderGeoData(data);</span><br>
+                <span>});</span><br><br>
 
-// helper function for location data, receiving the following:
-// Latitude: specifies the north–south position of a point on the Earth's surface
-// Longitude: specifies the east-west position of a point on the Earth's surface
-// In this demonstration the user will be tracked when click event is fired.
-function renderGeoData(geoObj) {
-    // variables to retrieve the object data from sensor-plug lib
-    var latValue = geoObj.latitude;
-    var lonValue = geoObj.longitude;
+                <span>// helper function for location data, receiving the following:</span><br>
+                <span>// Latitude: specifies the north–south position of a point on the Earth's surface</span><br>
+                <span>// Longitude: specifies the east-west position of a point on the Earth's surface</span><br>
+                <span>// In this demonstration the user will be tracked when click event is fired.</span><br>
+                <span>function renderGeoData(geoObj) {</span><br>
+                <span class="tab">// variables to retrieve the object data from sensor-plug lib</span><br>
+                <span class="tab">var latValue = geoObj.latitude;</span><br>
+                <span class="tab">var lonValue = geoObj.longitude;</span><br><br>
 
-    // The following variables give you an example of the data visualization.
-    // The sensor data in this case will change the text in the html.
-    var latitude = document.getElementById("latitude");
-    latitude.innerHTML = latValue;
+                <span class="tab">// The following variables give you an example of the data visualization.</span><br>
+                <span class="tab">// The sensor data in this case will change the text in the html.</span><br>
+                <span class="tab">var latitude = document.getElementById("latitude");</span><br>
+                <span class="tab">latitude.innerHTML = latValue;</span><br><br>
 
-    var longitude = document.getElementById("longitude");
-    longitude.innerHTML = lonValue;
-}
+                <span class="tab">var longitude = document.getElementById("longitude");</span><br>
+                <span class="tab">longitude.innerHTML = lonValue;</span><br>
+                <span>}</span><br><br>
 
-// click event to fire sensor-plug method below
-document.getElementById('button-get-position').addEventListener('click', function() {
-    // sensor-plug: self executing function, fires the handleGeolocation method.
-    Device.handleGeolocation();
-});
+                <span>// click event to fire sensor-plug method below</span><br>
+                <span>document.getElementById('button-get-position').addEventListener('click', function() {</span><br>
+                <span class="tab">// sensor-plug: self executing function, fires the handleGeolocation method.</span><br>
+                <span class="tab">Device.handleGeolocation();</span><br>
+                <span>});</span><br><br>
 
-// Check for Geolocation API permissions
-navigator.permissions.query({name:'geolocation'})
-  .then(function(permissionStatus) {
-      console.log('geolocation permission state is ', permissionStatus.state);
+                <span>// Check for Geolocation API permissions</span><br>
+                <span>navigator.permissions.query({name:'geolocation'}).then(function(permissionStatus) {</span><br>
+                <span class="tab">console.log('geolocation permission state is ', permissionStatus.state);</span><br><br>
 
-      permissionStatus.onchange = function() {
-          console.log('geolocation permission state has changed to ', this.state);
-      };
-  });
+                <span class="tab">permissionStatus.onchange = function() {</span><br>
+                <span class="dbl-tab">console.log('geolocation permission state has changed to ', this.state);</span><br>
+                <span class="tab">};</span><br>
+                <span>});</span><br><br>
 
-function log() {
-  document.querySelector('#log').textContent += Array.prototype.join.call(arguments, '') + '\n';
-}
+                <span>function log() {</span><br>
+                <span class="tab">document.querySelector('#log').textContent += Array.prototype.join.call(arguments, '') + '\n';</span><br>
+                <span>}</span><br><br>
 
-var getNotBtn = document.getElementById('button-get-permission');
+                <span>var getNotBtn = document.getElementById('button-get-permission');</span><br><br>
 
-getNotBtn.addEventListener('click', function() {
-  Notification.requestPermission(function(result) {
-      if (result === 'denied') {
-          log('Permission wasn\'t granted.');
-          return;
-      } else if (result === 'default') {
-          log('The permission request was dismissed.');
-          return;
-      }
-      log('Permission was granted for notifications');
-  });
-});
-                      </code>
-                    </pre>
-                </figure>
+                <span>getNotBtn.addEventListener('click', function() {</span><br>
+                <span class="tab">Notification.requestPermission(function(result) {</span><br>
+                <span class="tab">if (result === 'denied') {</span><br>
+                <span class="dbl-tab">log('Permission wasn\'t granted.');</span><br>
+                <span class="dbl-tab">return;</span><br>
+                <span class="tab">} else if (result === 'default') {</span><br>
+                <span class="dbl-tab">log('The permission request was dismissed.');</span><br>
+                <span class="dbl-tab">return;</span><br>
+                <span class="tab">}</span><br>
+                <span class="tab">log('Permission was granted for notifications');</span><br>
+                <span class="tab">});</span><br>
+                <span>});</span><br>
               </div>
             </div>
           </div>
@@ -191,29 +184,23 @@ getNotBtn.addEventListener('click', function() {
         <div class="columns">
           <div class="column">
             <div class="box">
-              <div class="media-content">
-                <figure class="highlight">
-                    <pre class="setup-code">
-                      <code>
-&lt;!-- This file will be your client-side html file. -->
-&lt;!-- In most cases this will be your index.html or location.html or something else... -->
-&lt;div>
-  &lt;!-- Below I am logging the Permissions API -->
-  &lt;div class="output">
-    &lt;pre id="log">&lt;/pre>
-  &lt;/div>
-  &lt;br>
-  &lt;!-- The following span tags will illustrate the current value of the current location data -->
-  &lt;!-- Notice each id correlates to the variables in the js above -> getElementById <- -->
-  &lt;span id="latitude">unavailable&lt;/span>
-  &lt;span>° Latitude&lt;/span>
-  &lt;br>
-  &lt;span id="longitude">unavailable&lt;/span>
-  &lt;span>° Longitude&lt;/span>
-&lt;/div>
-                      </code>
-                    </pre>
-                </figure>
+              <div class="media-content my-code">
+                <span>&lt;!-- This file will be your client-side html file. --></span><br>
+                <span>&lt;!-- In most cases this will be your index.html or location.html or something else... --></span><br>
+                <span>&lt;div></span><br>
+                <span class="tab">&lt;!-- Below I am logging the Permissions API --></span><br>
+                <span class="tab">&lt;div class="output"></span><br>
+                <span class="dbl-tab">&lt;pre id="log">&lt;/pre></span><br>
+                <span class="tab">&lt;/div></span><br>
+                <span class="tab">&lt;br></span><br>
+                <span class="tab">&lt;!-- The following span tags will illustrate the current value of the current location data --></span><br>
+                <span class="tab">&lt;!-- Notice each id correlates to the variables in the js above -> getElementById <- --></span><br>
+                <span class="tab">&lt;span id="latitude">unavailable&lt;/span></span><br>
+                <span class="tab">&lt;span>° Latitude&lt;/span></span><br>
+                <span class="tab">&lt;br></span><br>
+                <span class="tab">&lt;span id="longitude">unavailable&lt;/span></span><br>
+                <span class="tab">&lt;span>° Longitude&lt;/span></span><br>
+                <span>&lt;/div></span><br>
               </div>
             </div>
           </div>

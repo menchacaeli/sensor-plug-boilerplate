@@ -105,51 +105,45 @@
         <div class="columns">
           <div class="column">
             <div class="box">
-              <div class="media-content">
-                <figure class="highlight">
-                    <pre class="setup-code">
-                      <code>
-  // This file will be your client-side js file.
-  // In most cases this will be your main.js or app.js or whatever you want to call your file.
+              <div class="media-content my-code">
+                <span>// This file will be your client-side js file.</span><br>
+                <span>// In most cases this will be your main.js or app.js or whatever you want to call your file.</span><br><br>
 
-  'use strict';
-  // This creates your web socket
-  var socket = io();
+                <span>'use strict';</span><br>
+                <span>// This creates your web socket</span><br>
+                <span>var socket = io();</span><br><br>
 
-  // collecting sensor data from the helper function renderAccData and sending to server-side
-  socket.on('motion', function (data) {
-      renderAccData(data);
-  });
+                <span>// collecting sensor data from the helper function renderAccData and sending to server-side</span><br>
+                <span>socket.on('acceleration', function (data) {</span><br>
+                <span class="tab">renderAccData(data);</span><br>
+                <span>});</span><br><br>
 
-  // sensor-plug: self executing function, fires the accelerometer method.
-  Device.handleAcceleration();
+                <span>// sensor-plug: self executing function, fires the accelerometer method.</span><br>
+                <span>Device.handleAcceleration();</span><br><br>
 
-  // helper function for accelerometer data, receiving the following:
-  // X: The speed at which it moves side-to-side
-  // Y: The speed at which it moves forward/back
-  // Z: The speed at which it moves up/down
-  // In this demonstration the value changes in real-time.
-  function renderAccData (accObj) {
-      // variables to retrieve the object data from sensor-plug lib
-      var xValue = Math.round(accObj.accelerationX);
-      var yValue = Math.round(accObj.accelerationY);
-      var zValue = Math.round(accObj.accelerationZ);
+                <span>// helper function for accelerometer data, receiving the following:</span><br>
+                <span>// X: The speed at which it moves side-to-side</span><br>
+                <span>// Y: The speed at which it moves forward/back</span><br>
+                <span>// Z: The speed at which it moves up/down</span><br>
+                <span>// In this demonstration the value changes in real-time.</span><br>
+                <span>function renderAccData (accObj) {</span><br>
+                <span class="tab">// variables to retrieve the object data from sensor-plug lib</span><br>
+                <span class="tab">var xValue = Math.round(accObj.accelerationX);</span><br>
+                <span class="tab">var yValue = Math.round(accObj.accelerationY);</span><br>
+                <span class="tab">var zValue = Math.round(accObj.accelerationZ);</span><br><br>
 
-      // The following variables give you an example of the data visualization.
-      // The sensor data in this case will change the value in the html.
-      var x = document.getElementById('acceleration-x');
-      x.setAttribute('value', xValue);
+                <span class="tab">// The following variables give you an example of the data visualization.</span><br>
+                <span class="tab">// The sensor data in this case will change the value in the html.</span><br>
+                <span class="tab">var x = document.getElementById('acceleration-x');</span><br>
+                <span class="tab">x.setAttribute('value', xValue);</span><br><br>
 
-      var y = document.getElementById('acceleration-y');
-      y.setAttribute('value', yValue);
+                <span class="tab">var y = document.getElementById('acceleration-y');</span><br>
+                <span class="tab">y.setAttribute('value', yValue);</span><br><br>
 
-      var z = document.getElementById('acceleration-z');
-      z.setAttribute('value', zValue);
+                <span class="tab">var z = document.getElementById('acceleration-z');</span><br>
+                <span class="tab">z.setAttribute('value', zValue);</span><br><br>
 
-  }
-                      </code>
-                    </pre>
-                </figure>
+                <span>}</span>
               </div>
             </div>
           </div>
@@ -162,27 +156,21 @@
         <div class="columns">
           <div class="column">
             <div class="box">
-              <div class="media-content">
-                <figure class="highlight">
-                    <pre class="setup-code">
-                      <code>
-  &lt;!-- This file will be your client-side html file. -->
-  &lt;!-- In most cases this will be your index.html or acceleration.html or something else... -->
-  &lt;div>
-    &lt;!-- The following progress tags will illustrate the current value of the sensor data -->
-    &lt;!-- Notice each id correlates to the variables in the js above -> getElementById <- -->
-    &lt;!-- There are many different ways to illustrate the value of sensor data -->
-    &lt;!-- I encourage you to try different routes. -->
-    &lt;h1>Acceleration X&lt;/h1>
-    &lt;progress id="acceleration-x" max="100">null&lt;/progress>
-    &lt;h1>Acceleration Y&lt;/h1>
-    &lt;progress id="acceleration-y" max="100">null&lt;/progress>
-    &lt;h1>Acceleration Z&lt;/h1>
-    &lt;progress id="acceleration-z" max="100">null&lt;/progress>
-  &lt;/div>
-                      </code>
-                    </pre>
-                </figure>
+              <div class="media-content my-code">
+                <span>&lt;!-- This file will be your client-side html file. --></span><br>
+                <span>&lt;!-- In most cases this will be your index.html or acceleration.html or something else... --></span><br>
+                <span>&lt;div></span><br>
+                <span class="tab">&lt;!-- The following progress tags will illustrate the current value of the sensor data --></span><br>
+                <span class="tab">&lt;!-- Notice each id correlates to the variables in the js above -> getElementById <- --></span><br>
+                <span class="tab">&lt;!-- There are many different ways to illustrate the value of sensor data --></span><br>
+                <span class="tab">&lt;!-- I encourage you to try different routes. --></span><br>
+                <span class="tab">&lt;h1>Acceleration X&lt;/h1></span><br>
+                <span class="tab">&lt;progress id="acceleration-x" max="100">null&lt;/progress></span><br>
+                <span class="tab">&lt;h1>Acceleration Y&lt;/h1></span><br>
+                <span class="tab">&lt;progress id="acceleration-y" max="100">null&lt;/progress></span><br>
+                <span class="tab">&lt;h1>Acceleration Z&lt;/h1></span><br>
+                <span class="tab">&lt;progress id="acceleration-z" max="100">null&lt;/progress></span><br>
+                <span>&lt;/div></span>
               </div>
             </div>
           </div>

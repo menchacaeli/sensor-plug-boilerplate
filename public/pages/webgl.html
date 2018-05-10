@@ -23,26 +23,20 @@
           <div class="columns">
             <div class="column">
               <div class="box">
-                <div class="media-content">
-                  <figure class="highlight">
-                    <pre class="setup-code">
-                      <code>
-&lt;html>
-&lt;head>
-&lt;/head>
-&lt;body>
-  &lt;!-- This file will be your webGL container. -->
-  &lt;div id="webGlContainer">
-  &lt;/div>
-  &lt;script src="js/three.js">&lt;/script>
-  &lt;script>
-  // Our Javascript will go here.
-  &lt;/script>
-&lt;/body>
-&lt;/html>
-                      </code>
-                    </pre>
-                  </figure>
+                <div class="media-content my-code">
+                  <span>&lt;html></span><br>
+                  <span>&lt;head></span><br>
+                  <span>&lt;/head></span><br>
+                  <span>&lt;body></span><br>
+                  <span>&lt;!-- This file will be your webGL container. --></span><br>
+                  <span>&lt;div id="webGlContainer"></span><br>
+                  <span>&lt;/div></span><br>
+                  <span>&lt;script src="js/three.js">&lt;/script></span><br>
+                  <span>&lt;script></span><br>
+                  <span>// Our Javascript will go here.</span><br>
+                  <span>&lt;/script></span><br>
+                  <span>&lt;/body></span><br>
+                  <span>&lt;/html></span><br>
                 </div>
               </div>
             </div>
@@ -56,22 +50,18 @@
           <div class="columns">
             <div class="column">
               <div class="box">
-                <div class="media-content">
-                  <figure class="highlight">
-                    <pre class="setup-code">
-                      <code>
-var scene = new THREE.Scene();
+                <div class="media-content my-code">
+                  <span>var width = window.innerWidth;</span><br>
+                  <span>var height = window.innerHeight;</span><br>
+                  <span>var scene = new THREE.Scene();</span><br><br>
 
-var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+                  <span>var camera = new THREE.PerspectiveCamera(75, width/height, 0.1, 1000);</span><br><br>
 
-var renderer = new THREE.WebGLRenderer();
-renderer.setSize( window.innerWidth, window.innerHeight );
+                  <span>var renderer = new THREE.WebGLRenderer();</span><br>
+                  <span>renderer.setSize( width, height );</span><br><br>
 
-var container = document.getElementById("webGlContainer");
-container.appendChild( renderer.domElement );
-                      </code>
-                    </pre>
-                  </figure>
+                  <span>var container = document.getElementById("webGlContainer");</span><br>
+                  <span>container.appendChild( renderer.domElement );</span><br>
                 </div>
               </div>
             </div>
@@ -84,17 +74,11 @@ container.appendChild( renderer.domElement );
           <div class="columns">
             <div class="column">
               <div class="box">
-                <div class="media-content">
-                  <figure class="highlight">
-                    <pre class="setup-code">
-                      <code>
-  var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-  var material = new THREE.MeshLambertMaterial( { color: Math.random() * 0xffffff} );
-  var cube = new THREE.Mesh( geometry, material );
-  scene.add( cube );
-                      </code>
-                    </pre>
-                  </figure>
+                <div class="media-content my-code">
+                  <span>var geometry = new THREE.BoxGeometry( 1, 1, 1 );</span><br>
+                  <span>var material = new THREE.MeshLambertMaterial( { color: Math.random() * 0xffffff} );</span><br>
+                  <span>var cube = new THREE.Mesh( geometry, material );</span><br>
+                  <span>scene.add( cube );</span>
                 </div>
               </div>
             </div>
@@ -107,18 +91,12 @@ container.appendChild( renderer.domElement );
           <div class="columns">
             <div class="column">
               <div class="box">
-                <div class="media-content">
-                  <figure class="highlight">
-                    <pre class="setup-code">
-                      <code>
-  function animate() {
-    requestAnimationFrame( animate );
-    renderer.render( scene, camera );
-  }
-  animate();
-                      </code>
-                    </pre>
-                  </figure>
+                <div class="media-content my-code">
+                  <span>function animate() {</span><br>
+                  <span class="tab">requestAnimationFrame( animate );</span><br>
+                  <span class="tab">renderer.render( scene, camera );</span><br>
+                  <span>}</span><br>
+                  <span>animate();</span>
                 </div>
               </div>
             </div>
@@ -131,28 +109,22 @@ container.appendChild( renderer.domElement );
           <div class="columns">
             <div class="column">
               <div class="box">
-                <div class="media-content">
-                  <figure class="highlight">
-                    <pre class="setup-code">
-                      <code>
-  socket.on('orient', function (data) {
-      renderData(data);
-  });
+                <div class="media-content my-code">
+                  <span>socket.on('orientation', function (data) {</span><br>
+                  <span class="tab">renderData(data);</span><br>
+                  <span>});</span><br><br>
 
-  Device.handleOrientation();
+                  <span>Device.handleOrientation();</span><br><br>
 
-  function renderData (oriObj) {
-      var tiltLR = Math.round(oriObj.gamma);
-      var tiltFB = Math.round(oriObj.beta);
-      // var dir = oriObj.alpha;
+                  <span>function renderData (oriObj) {</span><br>
+                  <span class="tab"> var tiltLR = Math.round(oriObj.gamma);</span><br>
+                  <span class="tab"> var tiltFB = Math.round(oriObj.beta);</span><br>
+                  <span class="tab">// var dir = oriObj.alpha;</span><br><br>
 
-      cube.rotation.z = parseInt(tiltLR) * Math.PI/-180;
-      cube.rotation.x = parseInt(tiltFB) * Math.PI/180;
+                  <span class="tab">cube.rotation.z = parseInt(tiltLR) * Math.PI/-180;</span><br>
+                  <span class="tab">cube.rotation.x = parseInt(tiltFB) * Math.PI/180;</span><br>
 
-  }
-                      </code>
-                    </pre>
-                  </figure>
+                  <span>}</span>
                 </div>
               </div>
             </div>

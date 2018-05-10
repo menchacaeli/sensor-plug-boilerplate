@@ -23,34 +23,6 @@
     background: white;
     width: fit-content;
     border-radius: 5px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    font-size: 15px;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    line-height: 20px;
-    padding: 15px 25px;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.intro-pre {
-    background: none;
-}
-
-.setup-code {
-    border-radius: 5px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    line-height: 20px;
-    padding: 15px 25px;
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -69,6 +41,20 @@ a {
     color: #23d160;
 }
 
+/* CODE */
+/* ================================================= */
+.my-code {
+    font-family: monospace ;
+    overflow: auto;
+}
+
+.tab {
+    padding-left: 20px;
+}
+
+.dbl-tab {
+    padding-left: 40px;
+}
 /* GEOLOCATION PAGE */
 /* ================================================= */
 
@@ -80,6 +66,8 @@ a {
 /* ================================================= */
 #webGlContainer {
     margin: 0;
+    width: auto;
+    height: auto;
 }
 canvas {
     max-width: 100%;
